@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <script>window.__missing=[];function __miss(e){var t=e.target;__missing.push(t.getAttribute("src")||t.getAttribute("href"));}</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>synapsia — Platform Bimbingan Konseling Interaktif</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonts: Cormorant Garamond (judul), Plus Jakarta Sans (teks), Nunito (dashboard) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Nunito:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <script src="config.js" onerror="__miss(event)"></script>
+
+    <link rel="stylesheet" href="style-base.css" onerror="__miss(event)">
+  <link rel="stylesheet" href="style-theme.css" onerror="__miss(event)">
+  <link rel="stylesheet" href="style-landing.css" onerror="__miss(event)">
+  <link rel="stylesheet" href="style-app.css" onerror="__miss(event)">
+</head>
+<body>
+
+  <!-- FIXED NAVBAR (64px height, white bg, bottom border) -->
+  <header class="fixed top-0 left-0 right-0 h-[64px] bg-white border-b border-[rgb(229,229,229)] z-50">
+    <div class="max-w-[1440px] h-full mx-auto px-4 sm:px-8 flex items-center justify-between">
+      <!-- Left Side: Brand Logo + 1px Divider + Role Label -->
+      <div class="flex items-center gap-3.5">
+        <button onclick="switchRole('landing')" class="flex items-center gap-2.5 group focus:outline-none text-left">
+          <img src="logo-sm.png" alt="Logo Konselor" width="44" height="44" class="w-11 h-11 object-contain group-hover:scale-110 group-hover:-rotate-6 transition-transform">
+          <span class="font-feather text-[23px] tracking-tight text-[rgb(140,98,57)] lowercase leading-none">synapsia</span>
+        </button>
+
+        <div class="h-[24px] w-[1px] bg-[rgb(229,229,229)]"></div>
+
+        <span id="navbar-role-badge" class="text-[11px] font-extrabold uppercase tracking-[1.5px] text-[rgb(119,119,119)]">
+          BIMBINGAN KONSELING
+        </span>
+      </div>
+
+      <!-- Center/Right: Horizontal Nav Links -->
+      <nav id="navbar-links" class="hidden md:flex items-center gap-1.5">
+        <!-- Injected dynamically based on role -->
+      </nav>
+
+      <!-- Right Side: Streak Counter + Role Quick Switch -->
+      <div class="flex items-center gap-2.5">
+        <div class="duo-tooltip-wrapper">
+          <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[20px] bg-[#FF9600]/10 cursor-default">
+            <span class="text-[17px] leading-none">🔥</span>
+            <span id="nav-streak-count" class="text-[15px] font-extrabold text-[#FF9600]">7</span>
+          </div>
+          <div class="duo-tooltip-bubble">Streak Aktif 7 Hari Berturut-turut!</div>
+        </div>
+
+        <div id="navbar-action-area" class="flex items-center gap-2">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Sub-Navbar for Tabs when logged in -->
+  <div id="mobile-nav-bar" class="hidden md:hidden bg-white border-b border-[rgb(229,229,229)] px-3 py-2 overflow-x-auto whitespace-nowrap sticky top-[64px] z-40">
+    <div id="mobile-nav-links" class="inline-flex items-center gap-1.5"></div>
+  </div>
+
+  <!-- MAIN APP VIEWPORT -->
+  <main id="app-root" class="min-h-[calc(100vh-64px)]"></main>
+
+  <!-- MODAL CONTAINER -->
+  <div id="modal-backdrop" class="hidden fixed inset-0 bg-[rgb(24,24,23)]/55 backdrop-blur-xs z-50 flex items-center justify-center p-4" onclick="closeModalOnBackdrop(event)">
+    <div id="modal-content" class="bg-white border-2 border-[rgb(229,229,229)] rounded-[20px] max-w-xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 shadow-2xl relative">
+      <!-- Dynamic Modal Content -->
+    </div>
+  </div>
+
+  <a id="wa-fab" target="_blank" rel="noopener">💬 Chat WhatsApp BK</a>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container"></div>
+
+    <script src="app-01-avatars.js" onerror="__miss(event)"></script>
+  <script src="app-02-backend.js" onerror="__miss(event)"></script>
+  <script src="app-03-admin.js" onerror="__miss(event)"></script>
+  <script src="app-04-state.js" onerror="__miss(event)"></script>
+  <script src="app-05-ui.js" onerror="__miss(event)"></script>
+  <script src="app-06-navigation.js" onerror="__miss(event)"></script>
+  <script src="app-07-landing.js" onerror="__miss(event)"></script>
+  <script src="app-08-student.js" onerror="__miss(event)"></script>
+  <script src="app-09-counselor.js" onerror="__miss(event)"></script>
+  <script src="app-10-auth.js" onerror="__miss(event)"></script>
+  <script src="app-12-shell.js" onerror="__miss(event)"></script>
+  <script src="app-13-messages.js" onerror="__miss(event)"></script>
+  <script src="app-11-main.js" onerror="__miss(event)"></script>
+  <script>
+    // Penjaga: jika ada file yang tidak termuat, tampilkan petunjuk (bukan halaman kosong)
+    (function () {
+      var bad = window.__missing.slice();
+      if (typeof renderApp !== 'function' && !bad.length) bad.push('(ada file .js yang gagal dijalankan, buka Console browser)');
+      if (bad.length) {
+        document.body.className = '';
+        document.body.innerHTML = '<div style="font:16px/1.6 system-ui,sans-serif;max-width:600px;margin:10vh auto;padding:28px;background:#fff;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.12)"><h2 style="margin:0 0 8px">Synapsia belum bisa dijalankan</h2><p>File berikut tidak ditemukan. Pastikan <b>semua file</b> ada dalam <b>satu folder yang sama</b> dengan index.html, lalu buka lewat Live Server.</p><ul><li>' + bad.join('</li><li>') + '</li></ul></div>';
+      } else if (typeof tailwind === 'undefined') {
+        var b = document.createElement('div');
+        b.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:99;background:#181817;color:#fff;padding:10px 16px;font:13px system-ui';
+        b.textContent = 'Tidak ada koneksi internet: sebagian tampilan (Tailwind) belum termuat. Periksa koneksi lalu muat ulang.';
+        document.body.appendChild(b);
+      }
+    })();
+  </script>
+</body>
+</html>

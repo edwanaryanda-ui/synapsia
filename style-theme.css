@@ -1,0 +1,54 @@
+/* Tema editorial: krem #F6F4EF, abu #EAE7E1, arang #181817, aksen tanah #8C6239 */
+:root{--green:#181817;--green-hover:#8c6239;--green-shadow:transparent;--dark-blue:#181817;--footer-green:#8c6239;--border-color:#e6e1d8;--gray-text:#3b3935}
+body{font-family:'Plus Jakarta Sans','Nunito',-apple-system,BlinkMacSystemFont,sans-serif;background:#F6F4EF;color:#3b3935}
+.font-feather{font-family:'Cormorant Garamond',Georgia,serif!important;font-weight:700!important;letter-spacing:-.01em}
+.duo-btn{border-radius:999px!important;box-shadow:none!important;font-weight:600;letter-spacing:.2px}
+.duo-btn:active:not(:disabled){transform:scale(.97)!important}
+.duo-btn-secondary{background:#fff;color:#181817;border:1px solid #d9d3c8!important}
+.duo-card{border:1px solid #e6e1d8!important;border-radius:24px!important;box-shadow:0 10px 32px -18px rgba(24,24,23,.25)!important}
+header.fixed{background:rgba(246,244,239,.92)!important;backdrop-filter:blur(12px)}
+#modal-content{border-radius:28px!important;background:#F6F4EF!important;border:1px solid #e6e1d8!important}
+
+/* ===== Tema teal modern + motion ===== */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.rv.in{opacity:1;transform:none}
+.duo-card{transition:transform .25s ease,box-shadow .25s ease}
+.duo-card:hover{transform:translateY(-3px)}
+#wa-fab{position:fixed;right:18px;bottom:18px;z-index:45;display:none;align-items:center;gap:.5rem;background:#25d366;color:#fff;font-weight:800;border-radius:999px;padding:.8rem 1.2rem;text-decoration:none;box-shadow:0 10px 26px -8px rgba(37,211,102,.7);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* ===== Logo Konselor + motion (susunan seperti Selfora) ===== */
+@keyframes logoIn{from{opacity:0;transform:scale(.4) rotate(-120deg)}to{opacity:1;transform:none}}
+@keyframes logoGlow{0%,100%{filter:drop-shadow(0 0 0 rgba(255,215,130,0))}50%{filter:drop-shadow(0 0 16px rgba(255,215,130,.75))}}
+@keyframes logoFloat{50%{transform:translateY(-10px)}}
+@keyframes logoShine{0%,55%{background-position:150% 0}100%{background-position:-60% 0}}
+
+/* ===== Login: pilih peran dulu (sama dengan Selfora) ===== */
+.sr-card{max-width:440px;margin:0 auto}
+.sr-x{position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;background:#F7F7F7;font-weight:700;color:#777;display:flex;align-items:center;justify-content:center;z-index:2}
+.sr-logo{display:block;width:72px;height:72px;object-fit:contain;margin:0 auto .8rem;animation:logoIn .8s cubic-bezier(.2,.9,.3,1.2) both}
+.sr-logo.still{animation:none}
+.sr-h{text-align:center;margin:0 0 .3rem;font-family:'Feather Bold','Nunito',sans-serif;font-size:26px;color:rgb(16,15,62);text-transform:lowercase}
+.sr-sub{text-align:center;color:#777;margin:0 0 1.3rem;font-size:14px}
+.sr-roles{display:grid;gap:.75rem}
+.sr-role{display:flex;align-items:center;gap:1rem;width:100%;text-align:left;padding:1rem 1.1rem;background:#fff;border:1.5px solid #e5e5e5;border-radius:16px;cursor:pointer;transition:transform .2s,border-color .2s,box-shadow .2s,background .2s}
+.sr-role:hover,.sr-role:focus-visible{transform:translateY(-3px);border-color:#8c6239;background:#f1ece3;box-shadow:0 10px 24px rgba(27,42,94,.1)}
+.sr-role:active{transform:translateY(0)}
+.sr-ico{font-size:1.7rem;width:3rem;height:3rem;display:grid;place-items:center;border-radius:14px;background:#f1ece3;flex:none}
+.sr-txt{display:flex;flex-direction:column;gap:.15rem;flex:1}
+.sr-txt b{font-size:1.05rem;color:rgb(16,15,62);font-weight:800}
+.sr-txt small{color:#777;font-size:.85rem}
+.sr-arr{font-size:1.8rem;color:#6e4b2a;transition:transform .2s}
+.sr-role:hover .sr-arr{transform:translateX(5px)}
+.sr-back{background:none;border:0;padding:.2rem .1rem;margin-bottom:.6rem;font-weight:700;color:#6e4b2a;cursor:pointer}
+.sr-back:hover{text-decoration:underline}
+.sr-badge{text-align:center;font-weight:800;font-size:1.15rem;color:rgb(16,15,62);margin-bottom:1rem}
+.sr-tabs{display:flex;gap:4px;padding:4px;background:#f0f0f0;border-radius:14px;margin-bottom:1rem}
+.sr-tabs button{flex:1;padding:.6rem;border:0;background:transparent;cursor:pointer;font-family:inherit;border-radius:11px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:#777}
+.sr-tabs button.on{background:#fff;color:#8c6239;box-shadow:0 1px 4px rgba(0,0,0,.12)}
+.sr-lbl{display:flex;flex-direction:column;gap:.35rem;font-size:13px;font-weight:700;color:#555;margin-bottom:.8rem}
+.sr-in{border:2px solid #e5e5e5;border-radius:12px;height:46px;padding:0 14px;font-weight:600;font-size:15px;width:100%;outline:none;transition:border-color .2s}
+.sr-in:focus{border-color:#8c6239}
+.sr-err{color:#ea2b2b;font-size:13px;font-weight:700;min-height:20px;margin:0 0 .4rem}
+.sr-note{margin:1.2rem 0 0;padding-top:1rem;border-top:1px solid #eee;text-align:center;font-size:12px;color:#999}
